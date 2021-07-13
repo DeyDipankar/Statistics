@@ -1,0 +1,68 @@
+1) The higher the F-statistic, the surer you are that at least one coefficient is significant. Therefore, that the model (holding degrees of freedom constant) is significant overall.
+
+So, a higher F-statistic will have a lower p-value (we want a p-value of 0.000 in the ideal case). Conventionally, a p-value below 0.05 is okay. 
+
+In the same way, if an F-statistic is lower, its p-value will be higher (more likely to be above, say, 0.05) => closer to insignificant.
+
+2) The F-statistic in regressions is a comparison between our regression model, and a model that has no independent variables.
+
+If you create a regression with no independent variables (so you don't have Xs), just Y = some constant, say Y = 5. You will have some explanatory power still, like.. 0.1% (sometimes you'll get close to the answer, no doubt). If you use a regression for this, the only coefficient will be the intercept and it will be equal to the mean!
+
+So Y = the mean.
+
+If you check your formula for SSR, you will realize that if the prediction is always the mean,
+
+then SSR = 0 (no explanained variability).
+
+***
+
+Now, the F-stat is a ratio.
+
+It is a ratio of our model and the model with no Xs, which had SSR = 0.
+
+So what the F-stat shows us is:
+
+How much better is our current model, than a model that has no explanatory power whatsoever?
+
+We would usually have F-stats >50, or >300, or >2000. And those are all normal.
+
+However, an F-stat = 2, would imply that our model, is just 2 times better than saying: the answer is always the mean. We want something much more dramatic than 2, right?
+
+And that's what the F-stat constitutes of.
+
+***
+
+The F-stat follows the F-distribution, which is:
+
+1) always non-negative (for regressions, it is the ratio of two sum of squares so it is 0 or above)
+
+2) right skewed, because the F-distribution is right-skewed by definition
+
+Why the F-stat follows the F-distribution (and is therefore right-skewed, too)?
+
+Most of the time, the F-stat is 2,3,4,5,6, so our model is not much better than the one which has no explanatory power.
+
+Usually, there is a critical value, which says: okay, the cut-off line is say 3. If the F-stat is >3, then this model has some merit.
+
+Of course, there is an F-table you can consult about that!
+
+Hope this helps!
+
+3) Omitted variable bias occurs when you forget to include a variable. This is reflected in the error term as the factor you forgot about is included in the error. In this way, the error is not random but includes a systematic part (the omitted variable). So, if we find coefficients of any independent variable to be counter-intuitive, and thus increases the error, we should look for if an some important independent missing or not.
+
+4)Autocorrelation is not observed in cross-sectional data. You usually spot it at time series data, which is a subset of panel data. Sample data is not relevant for this question. There is no fix for autocorrelation, we just have to use a different model!
+
+5)Multicollinearity affects the coefficients and p-values, but it does not influence the predictions, precision of the predictions, and the goodness-of-fit statistics. If your primary goal is to make predictions, and you don’t need to understand the role of each independent variable, you don’t need to reduce severe multicollinearity
+
+6) Consider this simplified situation. Say you work in a firm with 4 departments: IT, Marketing, HR, and Sales. There are 1000 people in each department, so a total of 4000 people. You want to evaluate the general attitude towards a decision to move to a new office, which is much better on the inside, but is located on the other side of the city.
+
+You decide you don't really want to ask 4000 people, but 100 is a nice sample. Now we know that the 4 groups are exactly equal. So we expect that in those 100 people, we would have 25 from each department. 
+
+a) We pick 100 people (out of the 4000) at random at realize that we have 30 IT, 30 Marketing, 30 HR, and 10 from Sales. Obviously the opinion of the Sales department is underrepresented. We have a sample, which is random but not representative.
+
+b) I've been working in this firm for quite a while now, so I have many friends all over it. I decide to ask the opinion of my friends from each department, because I want them to feel comfortable in the workplace. I pick 25 people from each department. The sample is representative but is not random.
+
+In the first case, we have underrepresented some group of people.
+In the second case, we've made a decision based on a specific circle of people and not the general 'public'.
+
+If I want it to be random and representative, I will pick 25 people from IT at random, then 25 people from Marketing at random, same for HR and Sales. In this way, all groups will be represented and the sample will be random.
